@@ -18,12 +18,13 @@ class Person(models.Model):
         year = self[0:2]
         month = self[2:4]
         day = self[4:6]
-        if int(year) > 21:
+        century = self[6:7]
+        if int(century) == 3 or int(century) == 4:
             year = '19' + year
-            iin_convert = year + '-' + month + '-' + day
+            iin_convert = year + '-' + month + '-' + day # 1999-03-29
             iin_convert = datetime.datetime.strptime(iin_convert, '%Y-%m-%d')
             return iin_to_age(iin_convert)
-        elif int(year) <= 21:
+        elif int(century) == 5 or int(century) == 6:
             year = '20' + year
             iin_convert = year + '-' + month + '-' + day
             iin_convert = datetime.datetime.strptime(iin_convert, '%Y-%m-%d')
