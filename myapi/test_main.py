@@ -1,7 +1,5 @@
-from datetime import date
 from .models import Person
 from freezegun import freeze_time
-from dateutil.relativedelta import *
 import pytest
 import requests
 
@@ -13,7 +11,6 @@ def test_iin_create_ok():
     print('\nIIN: ' + person.iin + ' Age: ' + str(person.calculate_age))
     assert person.iin
     assert person.calculate_age
-
 
 
 @pytest.mark.django_db(True)
