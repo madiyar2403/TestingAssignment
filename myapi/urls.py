@@ -1,5 +1,4 @@
 from django.urls import include, path
-from . import views
 from .views import people, people_detail
 
 urlpatterns = [

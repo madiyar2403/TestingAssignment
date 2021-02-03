@@ -18,7 +18,7 @@ def people(request):
     elif request.method == 'POST':
         serializer = PersonSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(age=Person.calculate_age(str(request.data.get("iin"))))
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
